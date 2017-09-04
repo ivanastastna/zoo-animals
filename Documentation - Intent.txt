@@ -1,0 +1,235 @@
+
+
+
+Table of Contents
+
+1.0    Introduction	2
+2.0    CSS	2
+2.1   Files	2
+2.2   Structure	3
+3.0    Features	5
+3.1   Layout Style	5
+3.2   Header Style	5
+3.3   Portfolio filter system	5
+3.4   Slideshows	5
+3.5   Button styles	6
+4.0    Contact Form	6
+4.1   Files	6
+4.2   Usage	6
+4.3   Recipient email address – must do	6
+5.0    Google Map	7
+6.0    Credits	7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1.0    Introduction
+
+We would firstly like to thank you for purchasing our theme Intent. This documentation aims to aid anybody that has purchased the theme and answer questions they have about it. This will cover the versions of the theme included in your purchase along with how the theme is structured so those who wish to customise the theme to their liking can do so. 
+
+We do however acknowledge that this documentation may not answer all questions that everybody has and we will happily answer any other questions that you have by contacting us.
+
+2.0    CSS
+
+2.1   Files
+
+Included with the theme are three different CSS files which are needed for the full functionality of this theme. These three CSS files are:
+
+* Structure: everything needed structurally for the theme is kept within this CSS file. The classes required for the rows and columns used are located within here. They are kept separate as these will rarely need to be modified unless an update is needed to the core of the theme.
+
+* Style: the majority of the styling for the theme is kept within this CSS file. If you wish to change anything about the theme from font size, colours, line heights or anything else, this will be where the styling for the elements are. 
+
+* Responsive: the final CSS file included handles all of the responsive aspects of the theme which includes mobile and tablets. This file contains different media queries which are used to target various screen sizes. This file does not contain new CSS rules that are not within the main style sheet, it however is used to overwrite rules already used. For example a font size used for desktop may be unsuitable for mobile so in this style sheet it gets changed so it is easier to read.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.2   Structure
+
+The structure used for this theme is that of column classes similar to frameworks such as bootstrap however this theme does not used a recognised framework, it is custom. However it is still based off of a 12 column grid based system so anybody familiar with such grid layouts should find it very easy to use. If you are not, the use of the column classes and breakpoints allows for content to be targeted and styled appropriately for the size of screen the theme is being viewed on. It also serves as a great way to position content on the page is a grid format which always has equal spacing between each of the elements.
+
+The column classes used in the theme are as follows:
+
+- col-xlarge-n:
+	
+This column class is for targeting of the largest screen sizes which will be desktops which have larger screens. This size is where all of the features like hover states or activated because desktops allow for hover of the mouse.
+
+Breakpoint targeted: this column class is used at 1099px and higher.
+
+Container size: 1140px
+
+Examples: col-xlarge-12, col-xlarge-11, col-xlarge-10 …. col-xlarge-1
+
+- col-large-n:
+
+This column class is used to target smaller screen sized desktops, laptops, and tablet that are being viewed in landscape view. The majority of the time this will display what is visible on desktop however the size of the site will be slightly smaller best suit the smaller sized screen.
+
+Breakpoint targeted: this column class is used between 992px and 1099px
+
+Container size: 970px
+
+Examples: col-large-12, col-large-11, col-large-10 …. col-large-1
+
+- col-medium-n:
+
+This column is used to target medium sized screen devices with tablet being the main intention. This column class will become active within a certain screen width range and the container on the theme will be set according to give the best user experience.
+
+Breakpoint targeted: this column class is used between 768px and 991px
+
+Container size: 750px
+
+Examples: col-medium -12, col-medium -11, col-medium -10 …. col-medium-1
+
+
+
+
+- col-small-n: 
+
+This column class is used to target the smallest of devices with the main intention being to target mobile devices like smart phones. The class will become active when the screen size gets down to a certain width and will set the width of the container used for the theme to 100% of the users screen size.
+
+Breakpoint targeted: this column class is used at 767px and lower
+
+Container size: 100% of the screen width.
+
+Examples: col-small -12, col-small -11, col-small -10 …. col-small-1
+
+
+
+To use the above column classes a “row” element must be used to contain the column class that is being used. The column classes used within this row must also add up to the number 12 since this is based on a 12 column grid system. Therefore an example of what you could have is div with the class “col-xlarge-8” alongside a div with the class “col-xlarge-4” because that would total 12.
+
+This example in terms of code would look something like below.
+
+<div class=”row”>
+	<div class=”col-xlarge-8”>
+	</div>
+	<div class=”col-xlarge-4”>
+	</div>
+</div>
+
+Content could then be added within the two column divs and the spacing and sizing of the divs will be done by the column classes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3.0    Features
+
+3.1   Layout Style
+
+The theme has two different layout styles – full width and boxed. Switching the two is very easy, all you need to do is open the page in an editor and add the class “boxed” to the <body>. Removing this class will make the theme full width. 
+
+3.2   Header Style
+
+You can choose between having a fixed header, one that stays fixed at the top of the browser, and non-fixed, where it scrolls with the page. To do this you open up the page and find the <header> tag just after the <body>. Add a class of “fixed-header” to that <header> tag and it will be fixed. Removing this class will make it non-fixed.
+
+3.3   Portfolio filter system
+
+The theme has a portfolio section designed for displaying pieces of work or images. Different categories can be specified and items filtered by these categories. The use of this filter system is very simple and can be extended and used however necessary.
+
+Firstly you will need to locate the filter section of the page which is above the list items. This will include a series of <a> tags which is what can be filtered by. You can add/remove/modify any to this section and they will appear on the page. For example to add a new filter of photography it would look like this: <a href="#" data-filter=". photography ">photography</a>. The data filter is used for the filter system and the text next to it is what is shown on the front end. They do not have to be the same text and the data-filter should be one word and not two or more. It should also not include spaces.
+
+Lastly you will need to apply the same data-filter name you gave to the filter above to each of the items you wish to be shown for that filter. This will need to be added to the class that is on each of the <li> elements for each list item on the page. For example for photography this would look like:
+<li class="col-xlarge-4 col-medium-6 photography ">. Once this step and the previous step are done you won’t need to do anything else to get the filter system to work.
+					
+This of course can be disabled by removing the html for the filter section that is above the list items. Removing this will stop the filter being shown on the front end of the site and users will then not be able to filter the items. It can be re-enabled at any time by simply adding the html back into the page.
+
+3.4   Slideshows
+
+The Owl carousel plugin has been used for the slideshows in the theme allowing for great options and most importantly, mobile device support. Some features have been added to the theme that are not standard with the plugin to allow easier use for an end user who is not a developer.
+
+On the slideshow code you will see the data-autoplay option. Change it to true and the slideshow will auto play or change it to false and it will not. Out of the box some slideshows like the main one on the home are set to autoplay true.
+
+The speed that the slideshow changes the slide automatically can be changed by modifying the autoplay-speed value. The example below of 5000 meaning 5000ms which is 5 seconds. 1000 is 1 second, 2000 is 2 seconds etc.
+
+3.5   Button styles
+
+With the theme are two different button styles of “primary-button” and “secondary-button”. Apply the required class to a button or link element to give it the style you wish. You can also apply the class “rounded-button” with either of the two classes above to have a rounded corner button.
+
+4.0    Contact Form
+
+4.1   Files
+
+The contact form uses two files to achieve the Ajax submit functionality that is has. Each of the two are outlined below:
+
+* ajax_contact.js: this file which is located in assets/js is where the Javascript element of the contact form processing is done. Inputs are checked, error or success messages are generated, and the information is sent to the server to be checked again using php.
+
+* form_process.php: located in the includes folder this file handles the server side aspect of the contact form process. It validates all the information sent from the contact form and ultimately sends an email if everything is valid.
+
+4.2   Usage
+
+To use the contact form provided the files must be placed onto a server that supports the sending of mail using PHP’s mail function. Whether or not this is supported will be up to the hosting that you have paid for or are going to pay for. However the vast majority of web hosts will allow this functionality so long as the function isn’t being abused to send vast amounts of mail. For this contact form it shouldn’t be a problem but you should check with your web host.
+
+4.3   Recipient email address – must do
+
+The only contact form change required by yourself as the purchaser of this theme is to go into the form_process.php file within the includes folder and locate the line which is “$to = ”. This will need to have your email or the desired email address inputted here for the mail function to send the contact enquiry somewhere. 
+
+
+
+
+5.0    Google Map
+
+As of June 22 2016, Google now requires that you have an API key in order to use their Maps API. Up until this date you could use the API without needing a key. Therefore, you will need to generate an API key and put that within the Google Map API URL in the footer of the contact page. More information about this change can be found here: 
+http://googlegeodevelopers.blogspot.co.uk/2016/06/building-for-scale-updates-to-google.html
+
+Google have provided a good document that explains how you go about getting an API key. It is free to do and all you need to have is a Google account. The document could be found here: https://developers.google.com/maps/documentation/javascript/get-api-key
+
+6.0    Credits
+
+Certain assets were used in the creation of this theme which were not created by Lucid Themes. The acknowledgement for use of the assets are as follows:
+
+* Google web fonts - https://www.google.com/fonts
+
+* Google Maps - https://developers.google.com/maps/
+
+* jQuery library - https://jquery.com/
+
+* Isotope jQuery filter system - http://isotope.metafizzy.co 
+
+* Font Awesome - http://fortawesome.github.io/Font-Awesome/
+
+* Owl Carousel - http://owlcarousel.owlgraphic.com/
+
+* Pixel Squid - https://www.pixelsquid.com/ 
+
+Please note that the images used on the live preview are included within this theme because they are taken from the website http://pixabay.com which allows for images to be used for commercial use and with no attribution required. You can therefore continue to use any of them if you wish. Also some of the placeholder images are made by us and use a PSD rotatable image from Pixel Squid which is again free to use for commercial use.
+Page 2 | 7
+
+
